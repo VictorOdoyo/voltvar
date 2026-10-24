@@ -1,0 +1,9 @@
+{
+  "family": "curve_interpolation",
+  "variant": 9,
+  "inputs": {
+    "voltage": 0.967,
+    "capability": 0.9
+  },
+  "expected": 0.2925000000000001
+}
