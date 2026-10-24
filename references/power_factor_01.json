@@ -1,0 +1,9 @@
+{
+  "family": "power_factor",
+  "variant": 1,
+  "inputs": {
+    "p": -1,
+    "q": 0.5
+  },
+  "expected": 0.8944271909999159
+}
