@@ -1,0 +1,9 @@
+{
+  "family": "curve_clamp",
+  "variant": 4,
+  "inputs": {
+    "voltage": 1.09,
+    "capability": 0.4
+  },
+  "expected": -0.4
+}
