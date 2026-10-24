@@ -1,0 +1,9 @@
+{
+  "family": "capability",
+  "variant": 3,
+  "inputs": {
+    "p": 0.30000000000000004,
+    "s": 2
+  },
+  "expected": 1.977371993328519
+}
