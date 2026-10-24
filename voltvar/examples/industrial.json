@@ -1,0 +1,117 @@
+{
+  "network": {
+    "base_mva": 10,
+    "buses": [
+      {
+        "id": "grid",
+        "kind": "Slack",
+        "base_kv": 11
+      },
+      {
+        "id": "load",
+        "base_kv": 11
+      }
+    ],
+    "branches": [
+      {
+        "id": "feeder",
+        "from": "grid",
+        "to": "load",
+        "r": 0.015,
+        "x": 0.04,
+        "rate_mva": 8
+      }
+    ],
+    "generators": [
+      {
+        "id": "utility",
+        "bus": "grid",
+        "qmin": -20,
+        "qmax": 20,
+        "pmax_mw": 30
+      }
+    ],
+    "loads": [
+      {
+        "id": "demand",
+        "bus": "load",
+        "p_mw": 3,
+        "q_mvar": 1.4
+      }
+    ]
+  },
+  "taps": [
+    {
+      "id": "oltc",
+      "branch": "feeder",
+      "minimum": -2,
+      "maximum": 2,
+      "position": 0,
+      "step": 0.00625
+    }
+  ],
+  "capacitors": [
+    {
+      "id": "bank",
+      "bus": "load",
+      "maximum": 2,
+      "position": 0,
+      "step_mvar": 0.4
+    }
+  ],
+  "inverters": [
+    {
+      "id": "solar",
+      "bus": "load",
+      "p_mw": 0.8,
+      "s_mva": 1.1,
+      "q_mvar": 0,
+      "curve": [
+        [
+          0.94,
+          1
+        ],
+        [
+          0.98,
+          0
+        ],
+        [
+          1.02,
+          0
+        ],
+        [
+          1.06,
+          -1
+        ]
+      ]
+    }
+  ],
+  "limits": {
+    "vmin": 0.97,
+    "vmax": 1.04,
+    "min_pf": 0.9
+  },
+  "weights": {
+    "loss": 1,
+    "voltage": 30,
+    "switching": 0.0001
+  },
+  "profile": [
+    {
+      "load_scale": 0.7,
+      "solar_scale": 0
+    },
+    {
+      "load_scale": 1,
+      "solar_scale": 0.6
+    },
+    {
+      "load_scale": 1.2,
+      "solar_scale": 1
+    },
+    {
+      "load_scale": 0.9,
+      "solar_scale": 0.2
+    }
+  ]
+}
