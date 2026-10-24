@@ -1,0 +1,17 @@
+{
+  "family": "switch_count",
+  "variant": 4,
+  "inputs": {
+    "previous": [
+      4,
+      -4,
+      0
+    ],
+    "current": [
+      3,
+      -2,
+      4
+    ]
+  },
+  "expected": 7
+}
