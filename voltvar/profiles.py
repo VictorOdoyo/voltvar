@@ -9,12 +9,13 @@ def scaled(model,load_scale=1,solar_scale=1):
     for inv in m['inverters']:inv['p_mw']*=solar_scale
     return validate(m)
 def time_series(model,profile,mode='coordinated',q_levels=3):
+    from .regulators import regulate
     if not 1<=len(profile)<=168 or mode not in ['local','coordinated']:raise ValueError('Invalid profile or mode')
     original=validate(model);previous=state(original);rows=[]
     for i,period in enumerate(profile):
         m=scaled(original,period.get('load_scale',1),period.get('solar_scale',1))
         for d,p in zip(m['taps']+m['capacitors'],previous):d['position']=p
-        study=optimize(m,q_levels=q_levels,previous=previous) if mode=='coordinated' else local_control(m,previous=previous)
+        study=optimize(m,q_levels=q_levels,previous=previous) if mode=='coordinated' else regulate(m,previous=previous)
         result=study['best'] if mode=='coordinated' else study
         rows.append({'period':i,'result':result,'feasible':bool(result and result['feasible'])})
         if result:previous=result['positions']
