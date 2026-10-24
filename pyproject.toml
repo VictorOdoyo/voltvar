@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "voltvar"
+version = "1.0.0"
+description = "Voltage control and discrete reactive power coordination"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26,<3"]
+license = "MIT"
+authors = [{name = "Victor Odoyo"}]
+[project.scripts]
+voltvar = "voltvar.cli:main"
+[tool.setuptools.packages.find]
+include = ["voltvar*"]
+[tool.setuptools.package-data]
+voltvar = ["web/*", "examples/*.json"]
