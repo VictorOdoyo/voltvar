@@ -1,0 +1,10 @@
+{
+  "family": "capacitor_output",
+  "variant": 8,
+  "inputs": {
+    "steps": 8,
+    "step": 0.1,
+    "voltage": 0.98
+  },
+  "expected": 0.76832
+}
