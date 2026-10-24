@@ -1,0 +1,9 @@
+{
+  "family": "tap_ratio",
+  "variant": 2,
+  "inputs": {
+    "position": -3,
+    "step": 0.0052
+  },
+  "expected": 0.9844
+}
