@@ -1,0 +1,10 @@
+{
+  "family": "q_limit",
+  "variant": 2,
+  "inputs": {
+    "p": 0.1,
+    "s": 2,
+    "limit": 0.06
+  },
+  "expected": 0.06
+}
