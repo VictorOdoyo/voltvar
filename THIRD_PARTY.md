@@ -1,0 +1,1 @@
+GridFlow MIT core vendored from VictorOdoyo/gridflow commit 3a9ba0cc52d244fd65f91a4e4a00e6d962dae444. Original copyright Victor Odoyo. License: MIT (see LICENSE). Relative imports retained. No external runtime source downloads.
