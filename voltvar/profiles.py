@@ -26,8 +26,9 @@ def uncertain_solar(model,scales,**options):
     from .evaluate import assess
     rows=[]
     for scale in scales:
-        m=scaled(model,solar_scale=scale)
         # Fixed Q commands must satisfy the capability circle at each solar output.
-        try:r=assess(m,best['positions'],best['reactive_mvar']);rows.append({'solar_scale':scale,'feasible':r['feasible'],'result':r})
+        try:
+            m=scaled(model,solar_scale=scale)
+            r=assess(m,best['positions'],best['reactive_mvar']);rows.append({'solar_scale':scale,'feasible':r['feasible'],'result':r})
         except ValueError as exc:rows.append({'solar_scale':scale,'feasible':False,'error':str(exc)})
     return {'base':result,'robust_feasible':all(r['feasible'] for r in rows),'scenarios':rows,'assumption':'Fixed candidate stress test, not a robust optimization certificate.'}
